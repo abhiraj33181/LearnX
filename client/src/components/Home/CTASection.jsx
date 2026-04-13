@@ -14,7 +14,7 @@ const CTASection = () => {
         </h2>
 
         <p className='text-xl text-blue-100 mb-8'>
-          Join thousands of users who are already using Live Class for their online sessions.
+          Join thousands of users who are already using LiveX for their online sessions.
         </p>
 
         {isAuthenticated ? (

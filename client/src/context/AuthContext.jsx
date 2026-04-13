@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react"
 import api from "../services/api";
 
@@ -23,8 +24,8 @@ export const AuthProvider = ({ children }) => {
             }
             try {
                 const res = await api.get('/auth/me')
-                setUser(res.data?.user)
-            } catch (error) {
+                setUser(res.data.data)
+            } catch {
                 localStorage.removeItem('token');
                 setUser(null);
             } finally {
@@ -56,7 +57,7 @@ export const AuthProvider = ({ children }) => {
                 user
             }
         } catch (error) {
-            const errorMessage = error.response.data?.error || "Registration failed"
+            const errorMessage = error.response?.data?.error || "Registration failed"
             setError(errorMessage);
             return {
                 success: false,
@@ -86,7 +87,7 @@ export const AuthProvider = ({ children }) => {
                 user
             }
         } catch (error) {
-            const errorMessage = error.response.data?.error || "Login failed"
+            const errorMessage = error.response?.data?.error || "Login failed"
             setError(errorMessage);
             return {
                 success: false,

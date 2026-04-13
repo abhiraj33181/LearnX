@@ -10,20 +10,19 @@ export const protect = async (req, res, next) => {
 
         if (!token) {
             return res.status(401).json({
-                success: true,
+                success: false,
                 message: "Not Authorised."
             })
         }
 
         try {
             const decoded = verifyToken(token);
-            console.log(decoded)
             req.user = decoded.userId;
 
             next()
         } catch (error) {
             return res.status(401).json({
-                success: true,
+                success: false,
                 message: "Not authorised or invalid token"
             })
         }

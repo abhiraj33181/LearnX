@@ -27,7 +27,7 @@ const BenifitsSection = () => {
           {/* right side  */}
           <div>
             <h2 className='text-4xl font-bold text-gray-900 mb-6'>
-              Why Chooses Live Classes?
+              Why Chooses LearnX?
             </h2>
 
             <p className='text-xl text-gray-600 mb-8'>

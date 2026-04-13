@@ -1,0 +1,64 @@
+import mongoose from 'mongoose';
+
+const sessionSchema = new mongoose.Schema({
+    roomId: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        index: true
+    },
+    host: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['active', 'ended'],
+        default: 'active'
+    },
+    participants: [{
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+        },
+        userName: {
+            type: String,
+            required: true
+        },
+        joinedAt: {
+            type: Date,
+            default: Date.now
+        }
+
+    }],
+    startedAt: {
+        type: Date,
+        default: Date.now
+    },
+    endedAt: {
+        type: Date,
+        default: null
+    }
+}, { timestamps: true })
+
+
+sessionSchema.statics.generateRoomId = function () {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789'
+    let roomId = '';
+    for (let i = 0; i < 12; i++) {
+        roomId += chars.charAt(Math.floor(Math.random() * chars.length))
+    }
+    return roomId;
+}
+
+sessionSchema.statics.roomIdExists = async function(roomId) {
+    const session = await this.findOne({roomId});
+    return !!session;
+}
+
+const sessionModel = mongoose.model('Session', sessionSchema);
+
+export default sessionModel;

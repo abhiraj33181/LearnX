@@ -41,8 +41,8 @@ export const ZEGO_CONFIG = {
  */
 export const APP_CONFIG = {
   // Brand Information
-  APP_NAME: 'Live Classes',
-  APP_DESCRIPTION: 'Connect, learn, and grow together with our live class platform. Host or join interactive sessions with HD video, real-time chat, and seamless collaboration.',
+  APP_NAME: 'LearnX',
+  APP_DESCRIPTION: 'Connect, learn, and grow together with our LearnX platform. Host or join interactive sessions with HD video, real-time chat, and seamless collaboration.',
   APP_TAGLINE: 'Connect, Learn, Grow Together',
   
   // Social Media Links

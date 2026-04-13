@@ -1,24 +1,19 @@
 import React from 'react'
-import { useAuth } from '../context/AuthContext'
-import { Link, replace, useNavigate } from 'react-router';
+import { useAuth } from '../hooks/useAuth'
+import { Link } from 'react-router';
 import { FaVideo } from 'react-icons/fa';
 import { APP_CONFIG } from '../utils/constants';
 
 const Header = () => {
     const { isAuthenticated, user, logout } = useAuth();
-    const navigate = useNavigate();
 
-    const handleLogout = () => {
-        logout();
-        navigate('/', { replace: true })
-    }
     return (
         <header className='fixed top-0 left-0 right-0 bg-white z-50 shadow-sm border-b border-gray-200'>
 
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
                 <div className='flex justify-between items-center h-16'>
 
-                    <Link to={isAuthenticated ? "/dashboard" : "/"}
+                    <Link to="/"
                         className='flex items-center space-x-3'
                     >
 
@@ -26,7 +21,7 @@ const Header = () => {
                             <FaVideo className='w-6 h-6 text-white' />
                         </div>
                         <h1 className='text-xl font-bold bg-linear-to-br from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
-                            {APP_CONFIG.APP_NAME}
+                            LearnX
                         </h1>
 
                     </Link>
@@ -35,12 +30,12 @@ const Header = () => {
                     <nav className='flex items-center space-x-4'>
                         {isAuthenticated ? (
                             <>
-                            <Link to={'/dashboard'} className='text-gray-700 hover:Text-blue-600 font-medium transition-colors'>
+                            <Link to={'/dashboard'} className='text-gray-700 hover:text-blue-600 font-medium transition-colors'>
                             Dashboard
                             </Link>
                             <div className='flex items-center space-x-2 px-3 py-2 bg-gray-50 rounded-lg'>
 
-                                <div className='w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center'>
+                                <div className='w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center'>
                                     <span className='text-white text-sm font-semibold'>
                                         {user?.name?.charAt(0).toUpperCase()}
                                     </span>
@@ -56,7 +51,7 @@ const Header = () => {
                             </>
                         ) : (
                             <>
-                            <Link to={'/login'} className='text-gray-700 hover:text-blue-600 font-medium transition-colors' onClick={logout}>
+                            <Link to={'/login'} className='text-gray-700 hover:text-blue-600 font-medium transition-colors'>
                                 Sign In
                             </Link>
 
