@@ -11,7 +11,7 @@ const Header = () => {
         <header className='fixed top-0 left-0 right-0 bg-white z-50 shadow-sm border-b border-gray-200'>
 
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-                <div className='flex justify-between items-center h-16'>
+                <div className='flex flex-wrap justify-between items-center h-16'>
 
                     <Link to="/"
                         className='flex items-center space-x-3'
@@ -37,7 +37,7 @@ const Header = () => {
 
                                 <div className='w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center'>
                                     <span className='text-white text-sm font-semibold'>
-                                        {user?.name?.charAt(0).toUpperCase()}
+                                        {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
                                     </span>
                                 </div>
 
