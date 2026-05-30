@@ -1,4 +1,3 @@
-#+#+#+#+###############################################################################
 # LearnX
 
 LearnX is a full-stack live session platform for hosting and joining interactive video sessions. It provides authentication, session management, a host dashboard, and real-time video via ZegoCloud's prebuilt UI kit.
