@@ -252,7 +252,3 @@ Open `http://localhost:5173` in the browser.
 - **CORS issues**: ensure `CLIENT_URL` matches the frontend domain.
 - **Zego video not starting**: allow camera/microphone permissions and confirm Zego app credentials.
 - **Email sending fails**: verify Google OAuth2 credentials and ensure a config reader exists.
-
----
-
-If you want, I can add screenshots, Postman collection examples, or API sample responses to this documentation.
